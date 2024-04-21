@@ -1,0 +1,51 @@
+body {
+  background-color: black;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.circle {
+  width: 110px;
+  height: 110px;
+  background: url('loading.png') no-repeat center;
+  background-size: cover;
+  margin-bottom: 5px;
+  margin-top: 100px;
+}
+.rotate {
+  animation: rotate 2s linear infinite;
+}
+.pause {
+  animation-play-state: paused;
+}
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+#numberDisplay {
+  background-color: transparent;
+  padding: 0;
+  font-size: 250px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  width: 250px;
+  line-height: 0.3;
+  color: white;
+  margin-bottom: 50px;
+}
+#changeNumberButton {
+  background-color: transparent;
+  border: none;
+  padding: 5px 10px;
+  font-size: 10px;
+  cursor: pointer;
+  width: 150px; 
+}
