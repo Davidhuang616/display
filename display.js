@@ -3,7 +3,7 @@ let numberImage = document.getElementById('numberImage');
 let changeNumberButton = document.getElementById('changeNumberButton');
 let circle = document.querySelector('.circle');
 let number = 0;
-let timer;
+let timer = null;
 
 let numberImages = [
     '0.png',
@@ -13,16 +13,23 @@ let numberImages = [
     '4.png'
 ];
 
-changeNumberButton.addEventListener('mouseover', function() {
-  circle.classList.remove('pause'); // Add this line
-  circle.classList.add('rotate');
-  timer = setInterval(function() {
+window.addEventListener('keydown', function(event) {
+  if (event.code === 'Space' && timer === null) {
+    circle.classList.remove('pause');
+    circle.classList.add('rotate');
+    timer = setInterval(function() {
       number = (number + 1) % 5;
       numberImage.src = numberImages[number];
-  }, 1000);
+    }, 1000);
+  }
 });
 
-changeNumberButton.addEventListener('mouseout', function() {
-  circle.classList.add('pause');
-  clearInterval(timer);
+window.addEventListener('keyup', function(event) {
+  if (event.code === 'Space') {
+    circle.classList.add('pause');
+    if (timer !== null) {
+      clearInterval(timer);
+      timer = null;
+    }
+  }
 });
