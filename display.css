@@ -49,3 +49,15 @@ body {
   cursor: pointer;
   width: 150px; 
 }
+body::after {
+  content: "";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('path-to-your-image-with-holes.png');
+  pointer-events: none; /* This allows clicks to pass through to elements below */
+  z-index: 9999; /* This ensures the layer is on top of all other elements */
+}
